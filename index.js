@@ -42,7 +42,7 @@ export function promisify(fn, hasMultiBackParams = false, noError = false) {
  * @yields {Number}
  * @since 1.0.0
  */
-export function* keysArray(arr = [], start = 0, end = arr.length) {
+export function* keys(arr = [], start = 0, end = arr.length) {
   while (start < end) {
     yield start++;
   }
@@ -56,7 +56,7 @@ export function* keysArray(arr = [], start = 0, end = arr.length) {
  * @yields {Object}
  * @since 1.0.0
  */
-export function* valuesArray(arr = [], start = 0, end = arr.length) {
+export function* values(arr = [], start = 0, end = arr.length) {
   while (start < end) {
     yield arr[start++];
   }
@@ -71,7 +71,7 @@ export function* valuesArray(arr = [], start = 0, end = arr.length) {
  * @yields {{0: Number, 1: Object}} array
  * @since 1.0.0
  */
-export function* entriesArray(arr = [], start = 0, end = arr.length) {
+export function* entries(arr = [], start = 0, end = arr.length) {
   while (start < end) {
     yield [start, arr[start++]];
   }
@@ -85,7 +85,7 @@ export function* entriesArray(arr = [], start = 0, end = arr.length) {
  * @yields {Object}
  * @since 1.0.0
  */
-export function* valuesArrayRight(arr = [], start = arr.length - 1, end = 0) {
+export function* valuesRight(arr = [], start = arr.length - 1, end = 0) {
   while (start >= end) {
     yield arr[start--];
   }
@@ -99,7 +99,7 @@ export function* valuesArrayRight(arr = [], start = arr.length - 1, end = 0) {
  * @yields {{0: Number, 1: Object}} array
  * @since 1.0.0
  */
-export function* entriesArrayRight(arr = [], start = arr.length - 1, end = 0) {
+export function* entriesRight(arr = [], start = arr.length - 1, end = 0) {
   while (start >= end) {
     yield [start, arr[start--]];
   }
@@ -128,7 +128,7 @@ export function* entriesArrayRight(arr = [], start = arr.length - 1, end = 0) {
  *   console.log(x, y, z);
  * }
  * // 美观迭代
- * for (let [x, y, z] of iterateArray(arr, 3)) {
+ * for (let [x, y, z] of iterate(arr, 3)) {
  *   console.log(x, y, z);
  * }
  * 
@@ -139,7 +139,7 @@ export function* entriesArrayRight(arr = [], start = arr.length - 1, end = 0) {
  * @yields {Array}
  * @since 1.0.0
  */
-export function* iterateArray(array, step = 1, start = 0, end = array.length) {
+export function* iterate(array, step = 1, start = 0, end = array.length) {
   while (start < end) {
     let out = [];
     let count = step;
