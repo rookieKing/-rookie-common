@@ -172,3 +172,21 @@ export function sleep(milliseconds) {
     setTimeout(rs, milliseconds);
   });
 }
+
+/**
+ * 迭代树
+ * 
+ * @param {Array} array 
+ * @param {String} children 
+ * @yields {Object}
+ * @since 1.0.0
+ */
+export function* traverse(array, children = 'children') {
+  for (const item of array) {
+    yield item;
+
+    if (item[children]) {
+      yield* traverse(item[children], children);
+    }
+  }
+}
